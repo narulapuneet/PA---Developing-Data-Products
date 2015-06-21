@@ -1,0 +1,64 @@
+FUEL EFFICIENCY PREDICTION
+========================================================
+author: Puneet Narula
+date: 21-o6-2015
+
+Predicting milage per gallon
+========================================================
+
+I had created this shiny application for my Cousera Developing Data Products. 
+
+- The data 'mtcars' used is available in the basic R {base} package.
+- Fitted a linear model using number of cylinders, hp, weight and transmission as the variables to predict the milage per gallon
+- Used the model to predict the mpg, with different combination of variables
+
+Variables
+========================================================
+The variables used are 
+<table><thead>
+<tr>
+<th>Abbreviation</th>
+<th>Explanation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mpg</td>
+<td>Miles per gallon</td>
+</tr>
+<tr>
+<td>wt</td>
+<td>Weight in thousands of lbs</td>
+</tr>
+<tr>
+<td>hp</td>
+<td>Gross Horsepower</td>
+</tr>
+<tr>
+<td>cyl</td>
+<td>Number of Cylinders</td>
+</tr>
+<tr>
+<td>am</td>
+<td>Transmission (0=automatic, 1=manual)</td>
+</tr>
+</tbody></table>
+
+Building the Model
+========================================================
+
+```{r results=TRUE}
+library(shiny)
+data(mtcars)
+myfit <- lm(mpg ~ cyl+hp+wt+am, mtcars)
+summary(myfit)
+```
+
+
+Prediction
+=========================================================
+
+USing the shiny app, the user has to change the values of number of cylinders, Gross Horsepower, Weight(lb), Transmission. The result of prediction i.e. the milage per gallon is displayed in the bottom of the main panel.
+
+
+THANK YOU
+========
